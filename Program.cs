@@ -23,22 +23,30 @@ do
   string? choice = Console.ReadLine();
   logger.Info("User choice: {Choice}", choice);
 
-  if (choice == "1")
-  {
-    // Display Mario Characters
-  }
-  else if (choice == "2")
-  {
-    // Add Mario Character
-  }
-  else if (choice == "3")
-  {
-    // Remove Mario Character
-  } else if (string.IsNullOrEmpty(choice)) {
-    break;
-  } else {
-    logger.Info("Invalid choice");
-  }
+    if (choice == "1")
+    {
+        // Display Mario Characters
+    foreach(var c in marios)
+    {
+      Console.WriteLine(c.Display());
+    }
+    }
+    else if (choice == "2")
+    {
+        // Add Mario Character
+    }
+    else if (choice == "3")
+    {
+        // Remove Mario Character
+    }
+    else if (string.IsNullOrEmpty(choice))
+    {
+        break;
+    }
+    else
+    {
+        logger.Info("Invalid choice");
+    }
 } while (true);
 
 logger.Info("Program ended");

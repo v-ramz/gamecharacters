@@ -23,35 +23,36 @@ do
   string? choice = Console.ReadLine();
   logger.Info("User choice: {Choice}", choice);
 
-    if (choice == "1")
+  if (choice == "1")
+  {
+    // Display Mario Characters
+    foreach(var c in marios)
     {
-        // Display Mario Characters
-        foreach (var c in marios)
-        {
-            Console.WriteLine(c.Display());
-        }
+      Console.WriteLine(c.Display());
     }
-    else if (choice == "2")
+  }
+  else if (choice == "2")
+  {
+    // Add Mario Character
+    // Generate unique Id
+    Mario mario = new()
     {
-        // Add Mario Character
-            // Generate unique Id
-        Mario mario = new()
-        {
-         Id = marios.Count == 0 ? 1 : marios.Max(c => c.Id) + 1
-        };
-    }
-    else if (choice == "3")
-    {
-        // Remove Mario Character
-    }
-    else if (string.IsNullOrEmpty(choice))
-    {
-        break;
-    }
-    else
-    {
-        logger.Info("Invalid choice");
-    }
+      Id = marios.Count == 0 ? 1 : marios.Max(c => c.Id) + 1
+    };
+    // Input Name, Description
+    Console.WriteLine("Enter Name:");
+    mario.Name = Console.ReadLine();
+    Console.WriteLine("Enter Description:");
+    mario.Description = Console.ReadLine();
+  }
+  else if (choice == "3")
+  {
+    // Remove Mario Character
+  } else if (string.IsNullOrEmpty(choice)) {
+    break;
+  } else {
+    logger.Info("Invalid choice");
+  }
 } while (true);
 
 logger.Info("Program ended");

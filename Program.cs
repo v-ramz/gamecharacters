@@ -44,6 +44,17 @@ do
     mario.Name = Console.ReadLine();
     Console.WriteLine("Enter Description:");
     mario.Description = Console.ReadLine();
+    // Input Alias
+    List<string> list = [];
+    do {
+      Console.WriteLine($"Enter Alias or (enter) to quit:");
+      string response = Console.ReadLine()!;
+      if (string.IsNullOrEmpty(response)){
+        break;
+      }
+      list.Add(response);
+    } while (true);
+    mario.Alias = list;
   }
   else if (choice == "3")
   {

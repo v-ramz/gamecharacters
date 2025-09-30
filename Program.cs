@@ -57,7 +57,10 @@ do
       {
         logger.Error($"Character Id {Id} not found");
       } else {
-        logger.Info($"Character Id {Id} found");
+        marios.Remove(character);
+        // serialize list<marioCharacter> into json file
+        File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
+        logger.Info($"Character Id {Id} removed");
       }
     } else {
       logger.Error("Invalid Id");

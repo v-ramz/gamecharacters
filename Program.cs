@@ -57,7 +57,24 @@ do
       Console.WriteLine(c.Display());
     }
   }
-    else if (choice == "2")
+  if (choice == "2")
+  {
+    // Display DK Characters
+    foreach(var c in dks)
+    {
+      Console.WriteLine(c.Display());
+    }
+  }
+  if (choice == "3")
+  {
+    // Display Sf2 Characters
+    foreach(var c in sf2s)
+    {
+      Console.WriteLine(c.Display());
+    }
+  }
+ 
+  else if (choice == "4")
   {
     // Add Mario Character
     // Generate unique Id
@@ -71,7 +88,35 @@ do
     File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
     logger.Info($"Character added: {mario.Name}");
   }
-  else if (choice == "3")
+  else if (choice == "5")
+  {
+    // Add DK Character
+    // Generate unique Id
+    Dk dk = new()
+    {
+      Id = dks.Count == 0 ? 1 : dks.Max(c => c.Id) + 1
+    };
+    InputCharacter(dk);
+    // Add Character
+    dks.Add(dk);
+    File.WriteAllText(dkFileName, JsonSerializer.Serialize(dks));
+    logger.Info($"Character added: {dk.Name}");
+  }
+  else if (choice == "6")
+  {
+    // Add Sf2 Character
+    // Generate unique Id
+    Sf2 sf2 = new()
+    {
+      Id = sf2s.Count == 0 ? 1 : sf2s.Max(c => c.Id) + 1
+    };
+    InputCharacter(sf2);
+    // Add Character
+    sf2s.Add(sf2);
+    File.WriteAllText(sf2FileName, JsonSerializer.Serialize(sf2s));
+    logger.Info($"Character added: {sf2.Name}");
+  }
+  else if (choice == "7")
   {
     // Remove Mario Character
     Console.WriteLine("Enter the Id of the character to remove:");
@@ -87,6 +132,54 @@ do
         marios.Remove(character);
         // serialize list<marioCharacter> into json file
         File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
+        logger.Info($"Character Id {Id} removed");
+      }
+    }
+    else
+    {
+      logger.Error("Invalid Id");
+    }
+  }
+  else if (choice == "8")
+  {
+    // Remove Dk Character
+    Console.WriteLine("Enter the Id of the character to remove:");
+    if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+    {
+      Dk? character = dks.FirstOrDefault(c => c.Id == Id);
+      if (character == null)
+      {
+        logger.Error($"Character Id {Id} not found");
+      }
+      else
+      {
+        dks.Remove(character);
+        // serialize list<dkCharacter> into json file
+        File.WriteAllText(dkFileName, JsonSerializer.Serialize(dks));
+        logger.Info($"Character Id {Id} removed");
+      }
+    }
+    else
+    {
+      logger.Error("Invalid Id");
+    }
+  }
+  else if (choice == "9")
+  {
+    // Remove Sf2 Character
+    Console.WriteLine("Enter the Id of the character to remove:");
+    if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+    {
+      Sf2? character = sf2s.FirstOrDefault(c => c.Id == Id);
+      if (character == null)
+      {
+        logger.Error($"Character Id {Id} not found");
+      }
+      else
+      {
+        sf2s.Remove(character);
+        // serialize list<marioCharacter> into json file
+        File.WriteAllText(sf2FileName, JsonSerializer.Serialize(sf2s));
         logger.Info($"Character Id {Id} removed");
       }
     }

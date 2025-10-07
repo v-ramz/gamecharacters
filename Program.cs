@@ -49,6 +49,9 @@ do
   Console.WriteLine("7) Remove Mario Character");
   Console.WriteLine("8) Remove Dk Character");
   Console.WriteLine("9) Remove SF2 Character");
+  Console.WriteLine("10) edit Mario Character");
+  Console.WriteLine("11) edit Dk Character");
+  Console.WriteLine("12) edit SF2 Character");
   Console.WriteLine("Enter to quit");
 
   // input selection

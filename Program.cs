@@ -15,13 +15,20 @@ List<Mario> marios = [];
 string sf2FileName = "sf2.json";
 List<Sf2> sf2s = [];
 
-string DkFileName = "dk.json";
+string dkFileName = "dk.json";
 List<Dk> dks = [];
 // check if file exists
 if (File.Exists(marioFileName))
 {
   marios = JsonSerializer.Deserialize<List<Mario>>(File.ReadAllText(marioFileName))!;
   logger.Info($"File deserialized {marioFileName}");
+
+  dks = JsonSerializer.Deserialize<List<Dk>>(File.ReadAllText(dkFileName))!;
+  logger.Info($"File deserialized {dkFileName}");
+
+  sf2s = JsonSerializer.Deserialize<List<Sf2>>(File.ReadAllText(sf2FileName))!;
+  logger.Info($"File deserialized {sf2FileName}");
+  
 }
 
 do

@@ -22,10 +22,16 @@ if (File.Exists(marioFileName))
 {
   marios = JsonSerializer.Deserialize<List<Mario>>(File.ReadAllText(marioFileName))!;
   logger.Info($"File deserialized {marioFileName}");
+}
 
+if (File.Exists(dkFileName))
+{
   dks = JsonSerializer.Deserialize<List<Dk>>(File.ReadAllText(dkFileName))!;
   logger.Info($"File deserialized {dkFileName}");
+}
 
+if (File.Exists(sf2FileName))
+{
   sf2s = JsonSerializer.Deserialize<List<Sf2>>(File.ReadAllText(sf2FileName))!;
   logger.Info($"File deserialized {sf2FileName}");
   
@@ -52,28 +58,28 @@ do
   if (choice == "1")
   {
     // Display Mario Characters
-    foreach(var c in marios)
+    foreach (var c in marios)
     {
       Console.WriteLine(c.Display());
     }
   }
-  if (choice == "2")
+  else if (choice == "2")
   {
     // Display DK Characters
-    foreach(var c in dks)
+    foreach (var c in dks)
     {
       Console.WriteLine(c.Display());
     }
   }
-  if (choice == "3")
+  else if (choice == "3")
   {
     // Display Sf2 Characters
-    foreach(var c in sf2s)
+    foreach (var c in sf2s)
     {
       Console.WriteLine(c.Display());
     }
   }
- 
+
   else if (choice == "4")
   {
     // Add Mario Character

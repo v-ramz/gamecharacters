@@ -34,7 +34,7 @@ if (File.Exists(sf2FileName))
 {
   sf2s = JsonSerializer.Deserialize<List<Sf2>>(File.ReadAllText(sf2FileName))!;
   logger.Info($"File deserialized {sf2FileName}");
-  
+
 }
 
 do
@@ -197,6 +197,106 @@ do
       logger.Error("Invalid Id");
     }
   }
+  // edit choice inout
+  else if (choice == "10")
+  {
+    // edit mario Character
+    Console.WriteLine("Enter the Id of the character to edit:");
+    if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+    {
+      Mario? character = marios.FirstOrDefault(c => c.Id == Id);
+      if (character == null)
+      {
+        logger.Error($"Character Id {Id} not found");
+      }
+      else
+      {
+        marios.Remove(character);
+
+        Mario mario = new()
+        {
+          Id = Id
+        };
+        InputCharacter(mario);
+        // Add Character
+        marios.Add(mario);
+
+        // serialize list<marioCharacter> into json file
+        File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
+        logger.Info($"Character Id {Id} edited");
+      }
+    }
+    else
+    {
+      logger.Error("Invalid Id");
+    }
+  }
+      else if (choice == "11")
+  {
+    // edit dk Character
+    Console.WriteLine("Enter the Id of the character to edit:");
+    if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+    {
+      Dk? character = dks.FirstOrDefault(c => c.Id == Id);
+      if (character == null)
+      {
+        logger.Error($"Character Id {Id} not found");
+      }
+      else
+      {
+        dks.Remove(character);
+
+        Dk dk = new()
+        {
+          Id = Id
+        };
+        InputCharacter(dk);
+        // Add Character
+        dks.Add(dk);
+
+        // serialize list<marioCharacter> into json file
+        File.WriteAllText(dkFileName, JsonSerializer.Serialize(dks));
+        logger.Info($"Character Id {Id} edited");
+      }
+    }
+    else
+    {
+      logger.Error("Invalid Id");
+    }
+  }
+      else if (choice == "12")
+  {
+    // edit Sf2 Character
+    Console.WriteLine("Enter the Id of the character to edit:");
+    if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+    {
+      Sf2? character = sf2s.FirstOrDefault(c => c.Id == Id);
+      if (character == null)
+      {
+        logger.Error($"Character Id {Id} not found");
+      }
+      else
+      {
+        sf2s.Remove(character);
+
+        Sf2 sf2 = new()
+        {
+          Id = Id
+        };
+        InputCharacter(sf2);
+        // Add Character
+        sf2s.Add(sf2);
+
+        // serialize list<marioCharacter> into json file
+        File.WriteAllText(sf2FileName, JsonSerializer.Serialize(sf2));
+        logger.Info($"Character Id {Id} edited");
+      }
+    }
+    else
+    {
+      logger.Error("Invalid Id");
+    }
+  }
   else if (string.IsNullOrEmpty(choice))
   {
     break;
@@ -220,12 +320,16 @@ static void InputCharacter(Character character)
     {
       Console.WriteLine($"Enter {prop.Name}:");
       prop.SetValue(character, Console.ReadLine());
-    } else if (prop.PropertyType == typeof(List<string>)) {
+    }
+    else if (prop.PropertyType == typeof(List<string>))
+    {
       List<string> list = [];
-      do {
+      do
+      {
         Console.WriteLine($"Enter {prop.Name} or (enter) to quit:");
         string response = Console.ReadLine()!;
-        if (string.IsNullOrEmpty(response)){
+        if (string.IsNullOrEmpty(response))
+        {
           break;
         }
         list.Add(response);

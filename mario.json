@@ -1,36 +1,52 @@
 [
   {
-    "Alias": ["Mr. Video", "Jumpman", "Mario Mario", "Super Mario"],
+    "Alias": [
+      "Mr. Video",
+      "Jumpman",
+      "Mario Mario",
+      "Super Mario"
+    ],
     "Id": 1,
     "Name": "Mario",
     "Description": "Hero of the Mushroom Kingdom"
   },
   {
-    "Alias": ["Luigi Mario"],
+    "Alias": [
+      "Luigi Mario"
+    ],
     "Id": 2,
     "Name": "Luigi",
     "Description": "Mario\u0027s twin brother"
   },
   {
-    "Alias": ["Bowser Sr.", "King Koopa"],
+    "Alias": [
+      "Bowser Sr.",
+      "King Koopa"
+    ],
     "Id": 3,
     "Name": "Bowser",
     "Description": "King of the Koopas"
   },
   {
-    "Alias": ["Princess Peach Toadstool"],
+    "Alias": [
+      "Princess Peach Toadstool"
+    ],
     "Id": 4,
     "Name": "Princess Peach",
     "Description": "Mario\u0027s love interest"
   },
   {
-    "Alias": ["Bowser Koopa Jr."],
+    "Alias": [
+      "Bowser Koopa Jr."
+    ],
     "Id": 5,
     "Name": "Bowser Jr.",
     "Description": "Heir to the Koopa throne"
   },
   {
-    "Alias": ["Daisy"],
+    "Alias": [
+      "Daisy"
+    ],
     "Id": 6,
     "Name": "Princess Daisy",
     "Description": "Princess of Sarasaland"
@@ -42,7 +58,9 @@
     "Description": "Pricess Peach\u0027s companion"
   },
   {
-    "Alias": ["Mario\u0027s companion"],
+    "Alias": [
+      "Mario\u0027s companion"
+    ],
     "Id": 8,
     "Name": "Yoshi",
     "Description": "Yossi,Green Yoshi"
@@ -66,7 +84,9 @@
     "Description": "Protector of the Luma creatures"
   },
   {
-    "Alias": ["DK"],
+    "Alias": [
+      "DK"
+    ],
     "Id": 12,
     "Name": "Donkey Kong",
     "Description": "King of the jungle"

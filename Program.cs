@@ -211,16 +211,7 @@ do
       }
       else
       {
-        marios.Remove(character);
-
-        Mario mario = new()
-        {
-          Id = Id
-        };
-        InputCharacter(mario);
-        // Add Character
-        marios.Add(mario);
-
+        InputCharacter(character);
         // serialize list<marioCharacter> into json file
         File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
         logger.Info($"Character Id {Id} edited");
@@ -244,17 +235,8 @@ do
       }
       else
       {
-        dks.Remove(character);
-
-        Dk dk = new()
-        {
-          Id = Id
-        };
-        InputCharacter(dk);
-        // Add Character
-        dks.Add(dk);
-
-        // serialize list<marioCharacter> into json file
+        InputCharacter(character);
+        // serialize list<dkCharacter> into json file
         File.WriteAllText(dkFileName, JsonSerializer.Serialize(dks));
         logger.Info($"Character Id {Id} edited");
       }
@@ -277,18 +259,9 @@ do
       }
       else
       {
-        sf2s.Remove(character);
-
-        Sf2 sf2 = new()
-        {
-          Id = Id
-        };
-        InputCharacter(sf2);
-        // Add Character
-        sf2s.Add(sf2);
-
+        InputCharacter(character);
         // serialize list<marioCharacter> into json file
-        File.WriteAllText(sf2FileName, JsonSerializer.Serialize(sf2));
+        File.WriteAllText(sf2FileName, JsonSerializer.Serialize(sf2s));
         logger.Info($"Character Id {Id} edited");
       }
     }
